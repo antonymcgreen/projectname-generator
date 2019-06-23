@@ -1,9 +1,9 @@
 import random
 
-windowSize=3
+windowSize=2
 
-def learnModel():
-    corpus = open('cities.txt')
+def learnModel(filename):
+    corpus = open(filename)
     model={'^':[]}
 
     for word in corpus:
@@ -32,5 +32,7 @@ def gen(model, length, count):
         else:
             count+=1
 
-
-gen(learnModel(), (6,8), 10)
+print('NAMES')
+gen(learnModel('names.txt'), (5,7), 10)
+print('\nCITIES')
+gen(learnModel('cities.txt'), (6,8), 10)
